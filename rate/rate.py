@@ -126,16 +126,19 @@ class RateXBlock(XBlock):
         scale_item = self.resource_string("static/html/scale_item.html").replace('\n', '')
         indexes = range(len(prompt['icons']))
         active_vote = ["checked" if i == self.user_vote else "" for i in indexes]
-        scale = u"".join(scale_item.format(level=level, icon=icon, i=i, active=active) for (level, icon, i, active) in zip(prompt['mouseovers'], prompt['icons'], indexes, active_vote))
+        img_urls = [self.runtime.local_resource_url(self, 'public/img/{i}t.png'.format(i=i)) for i in range(1,6)]
+        scale = u"".join(scale_item.format(level=level, icon=icon, i=i, active=active, img=img) for (level, icon, i, active, img) in zip(prompt['mouseovers'], prompt['icons'], indexes, active_vote, img_urls))
         if self.user_vote != -1:
             _ = self.runtime.service(self, 'i18n').ugettext
             response = _("Thank you for voting!")
         else:
             response = ""
+
         rendered = html.format(self=self,
                                scale=scale,
                                freeform_prompt=prompt['freeform'],
                                likert_prompt=prompt['likert'],
+                               smile_urls=img_urls,
                                response=response)
 
         # We initialize self.p_user if not initialized -- this sets whether
