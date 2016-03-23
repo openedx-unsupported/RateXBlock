@@ -1,5 +1,9 @@
-RateXBlock
+OBSOLETE AND DEPRECATED RateXBlock
 ==========
+
+This is currently moved to FeedbackXBlock. This was an early prototype.
+Shoo. Go there, not here. We still need this repo for
+backwards-compatibility, but that's a nicer place to look.
 
 This is a basic clone of Dropthought for use in Open edX. This doesn't
 have all the analytics niceness, and the UX is less polished.
