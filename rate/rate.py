@@ -4,6 +4,8 @@ This is an XBlock designed to allow people to provide feedback on our
 course resources.
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 import random
 
 import pkg_resources
@@ -11,6 +13,9 @@ import pkg_resources
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, List, Float
 from xblock.fragment import Fragment
+import six
+from six.moves import range
+from six.moves import zip
 
 
 @XBlock.needs('i18n')
@@ -122,7 +127,7 @@ class RateXBlock(XBlock):
         else:
             scale_item = self.resource_string("static/html/scale_item.html")
         scale_item = scale_item.replace('\n', '')
-        indexes = range(len(prompt['icons']))
+        indexes = list(range(len(prompt['icons'])))
         active_vote = ["checked" if i == self.user_vote else ""
                        for i in indexes]
         self.init_vote_aggregate()
@@ -168,9 +173,9 @@ class RateXBlock(XBlock):
         """
         html_str = self.resource_string("static/html/studio_view.html")
         prompt = self.get_prompt(0)
-        frag = Fragment(unicode(html_str).format(**prompt))
+        frag = Fragment(six.text_type(html_str).format(**prompt))
         js_str = self.resource_string("static/js/src/studio.js")
-        frag.add_javascript(unicode(js_str))
+        frag.add_javascript(six.text_type(js_str))
         frag.initialize_js('RateBlock')
         return frag
 
@@ -185,7 +190,6 @@ class RateXBlock(XBlock):
 
     def init_vote_aggregate(self):
         # Make sure we're initialized
-        print self.get_prompt()
         if not self.vote_aggregate:
             self.vote_aggregate = [0] * (len(self.get_prompt()['mouseovers']))
 

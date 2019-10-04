@@ -7,9 +7,10 @@ Microsoft!). This script generally does not need to be rerun, but if
 you would like to, we'd recommend running this under Ubuntu.
 '''
 
+from __future__ import absolute_import
 import unittest
 from bok_choy.web_app_test import WebAppTest
-from pages import IconsPage
+from .pages import IconsPage
 
 
 class TestIcons(WebAppTest):
