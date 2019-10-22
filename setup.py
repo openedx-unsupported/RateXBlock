@@ -1,5 +1,6 @@
 """Setup for rate XBlock."""
 
+from __future__ import absolute_import
 import os
 from setuptools import setup
 
@@ -22,8 +23,12 @@ def package_data(pkg, roots):
 
 setup(
     name='rate-xblock',
-    version='0.1',
+    version='2.0',
     description='rate XBlock',   # TODO: write a better description.
+    classifiers=[
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3'
+    ],
     packages=[
         'rate',
     ],
