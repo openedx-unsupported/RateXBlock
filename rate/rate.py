@@ -1,10 +1,8 @@
-# coding: utf-8
 """
 This is an XBlock designed to allow people to provide feedback on our
 course resources.
 """
 
-from __future__ import absolute_import, print_function
 import random
 
 import pkg_resources
@@ -13,7 +11,6 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, List, Float
 from xblock.fragment import Fragment
 import six
-from six.moves import range, zip
 
 
 @XBlock.needs('i18n')
@@ -96,7 +93,7 @@ class RateXBlock(XBlock):
                            _("Average"),
                            _("Fair"),
                            _("Poor")],
-            'icons': [u"😁", u"😊", u"😐", u"😞", u"😭"]
+            'icons': ["😁", "😊", "😐", "😞", "😭"]
         }
 
         prompt.update(self.prompts[index])
@@ -130,7 +127,7 @@ class RateXBlock(XBlock):
                        for i in indexes]
         self.init_vote_aggregate()
         votes = self.vote_aggregate
-        scale = u"".join(
+        scale = "".join(
             scale_item.format(level=l, icon=icon, i=i, active=a, votes=v) for
             (l, icon, i, a, v) in
             zip(prompt['mouseovers'], prompt['icons'], indexes, active_vote, votes)
@@ -156,7 +153,7 @@ class RateXBlock(XBlock):
         if self.p_user < self.p:
             frag = Fragment(rendered)
         else:
-            frag = Fragment(u"")
+            frag = Fragment("")
 
         # Finally, we do the standard JS+CSS boilerplate. Honestly, XBlocks
         # ought to have a sane default here.
@@ -171,9 +168,9 @@ class RateXBlock(XBlock):
         """
         html_str = self.resource_string("static/html/studio_view.html")
         prompt = self.get_prompt(0)
-        frag = Fragment(six.text_type(html_str).format(**prompt))
+        frag = Fragment(str(html_str).format(**prompt))
         js_str = self.resource_string("static/js/src/studio.js")
-        frag.add_javascript(six.text_type(js_str))
+        frag.add_javascript(str(js_str))
         frag.initialize_js('RateBlock')
         return frag
 
