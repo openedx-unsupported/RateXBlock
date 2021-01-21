@@ -45,11 +45,10 @@ def is_requirement(line):
 
 setup(
     name='rate-xblock',
-    version='2.0.1',
+    version='3.0.0',
     description='rate XBlock',   # TODO: write a better description.
     classifiers=[
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3'
+        'Programming Language :: Python :: 3.8'
     ],
     packages=[
         'rate',
