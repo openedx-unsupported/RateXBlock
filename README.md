@@ -1,4 +1,16 @@
-OBSOLETE AND DEPRECATED RateXBlock
+![license](https://img.shields.io/badge/License-AGPL_v3-blue.svg)
+![coverage](https://img.shields.io/badge/status-deprecated-AB0D02)
+
+**OBSOLETE AND DEPRECATED**
+
+This repository has been accepted as deprecated per the [Open edX DEPR
+process](https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0021-proc-deprecation.html). It
+may be moved to openedx-unsupported for historical purposes at any
+time.
+
+[DEPR Issue](https://github.com/openedx/RateXBlock/issues/45)
+
+RateXBlock
 ==========
 
 This is currently moved to FeedbackXBlock. This was an early prototype.
