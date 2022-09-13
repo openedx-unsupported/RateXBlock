@@ -3,7 +3,7 @@
 
 **OBSOLETE AND DEPRECATED**
 
-(DEPR Issue)[https://github.com/openedx/RateXBlock/issues/45]
+[DEPR Issue](https://github.com/openedx/RateXBlock/issues/45)
 
 RateXBlock
 ==========
