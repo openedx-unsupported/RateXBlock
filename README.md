@@ -1,4 +1,3 @@
-![license](https://img.shields.io/badge/License-AGPL_v3-blue.svg)
 ![coverage](https://img.shields.io/badge/status-deprecated-AB0D02)
 
 **OBSOLETE AND DEPRECATED**
